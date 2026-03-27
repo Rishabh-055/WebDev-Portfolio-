@@ -1,0 +1,22 @@
+/* ── FOOTER — WhatsApp dark ── */
+footer {
+  background: #111b21;
+  color: rgba(173,188,197,0.75);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  border-top: 1px solid #2a3942;
+}
+footer strong { color: #e9edef; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-logo {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #e9edef;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+}
+.footer-logo span { color: var(--wa-green); }
+.footer-copy { margin-top: 0.5rem; font-size: 0.75rem; }

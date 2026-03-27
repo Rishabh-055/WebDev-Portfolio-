@@ -1,0 +1,81 @@
+/* ── PORTFOLIO — WhatsApp theme ── */
+#portfolio { background: var(--wa-sidebar); }
+#portfolio h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--wa-ink);
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.portfolio-card {
+  background: var(--wa-white);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--wa-border);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,168,132,0.1);
+}
+.portfolio-img {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  position: relative;
+}
+.portfolio-category {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  color: var(--wa-muted);
+  font-family: 'Inter', sans-serif;
+}
+.portfolio-info { padding: 1.25rem 1.5rem; }
+.portfolio-info h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  color: var(--wa-ink);
+}
+.portfolio-info p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  color: var(--wa-muted);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+.portfolio-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.tag {
+  background: var(--wa-sidebar);
+  color: var(--wa-muted);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: 5px;
+  font-family: 'Inter', sans-serif;
+}
+.portfolio-result {
+  background: var(--wa-bubble);
+  color: var(--wa-green-dark);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  border: 1px solid rgba(0,168,132,0.2);
+  font-family: 'Inter', sans-serif;
+}
