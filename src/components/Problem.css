@@ -1,20 +1,20 @@
-/* ── PROBLEM — WhatsApp dark theme ── */
+/* ── PROBLEM — Prasanna Dark ── */
 #problem {
-  background: #111b21;   /* WhatsApp's deep dark */
-  color: #e9edef;
+  background: var(--pd-surface2);
+  color: var(--text-primary);
 }
 #problem h2 {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
   max-width: 600px;
   margin-bottom: 1rem;
-  color: #e9edef;
+  color: #fff;
 }
 #problem > .container > p {
   font-family: 'Inter', sans-serif;
-  color: rgba(233,237,239,0.65);
+  color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.8;
   max-width: 560px;
@@ -24,33 +24,33 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 18px;
+  border-radius: 24px;
   overflow: hidden;
   margin-top: 3rem;
 }
-.problem-cell { background: #1c2b33; padding: 2rem; }
-.problem-cell.dark { background: #202c33; }
+.problem-cell { background: var(--pd-surface); padding: 2rem; }
+.problem-cell.dark { background: #131313; }
 .problem-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
 .problem-cell h4 {
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   font-weight: 700;
   margin-bottom: 0.4rem;
-  color: #e9edef;
+  color: #fff;
+  letter-spacing: -0.01em;
 }
 .problem-cell p {
   font-family: 'Inter', sans-serif;
   font-size: 0.8rem;
-  color: rgba(233,237,239,0.55);
-  line-height: 1.6;
+  color: var(--text-muted);
+  line-height: 1.65;
   font-weight: 400;
 }
-.problem-cell.solution { background: var(--wa-green); }
-.problem-cell.solution h4,
-.problem-cell.solution p { color: white; }
-.problem-cell.solution p { color: rgba(255,255,255,0.85); }
+.problem-cell.solution { background: var(--accent); }
+.problem-cell.solution h4 { color: #000; }
+.problem-cell.solution p { color: rgba(0,0,0,0.75); }
 
 @media (max-width: 768px) {
   .problem-grid { grid-template-columns: 1fr; }

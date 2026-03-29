@@ -1,24 +1,24 @@
-/* ── SERVICES — WhatsApp theme ── */
-#services { background: var(--wa-bg); }
+/* ── SERVICES — Prasanna Dark Theme ── */
+#services { background: var(--pd-surface2); }
 #services h2 {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--wa-ink);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #fff;
 }
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin-top: 3rem;
 }
 .service-card {
-  border: 1.5px solid var(--wa-border);
-  border-radius: 18px;
+  border: 1px solid var(--pd-border);
+  border-radius: 24px;
   padding: 2rem;
-  background: var(--wa-white);
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  background: var(--pd-surface);
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s, border-color 0.3s;
   position: relative;
   overflow: hidden;
 }
@@ -26,50 +26,53 @@
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--wa-green);
+  height: 2px;
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.35s;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
 }
 .service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0,168,132,0.1);
-  border-color: rgba(0,168,132,0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(74,222,128,0.1);
+  border-color: rgba(74,222,128,0.2);
 }
 .service-card:hover::before { transform: scaleX(1); }
 .service-icon {
   width: 48px;
   height: 48px;
-  background: var(--wa-bubble);
-  border-radius: 12px;
+  background: rgba(74,222,128,0.1);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
   margin-bottom: 1.25rem;
+  border: 1px solid rgba(74,222,128,0.15);
 }
 .service-card h3 {
   font-family: 'Inter', sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: var(--wa-ink);
+  color: #fff;
+  letter-spacing: -0.02em;
 }
 .service-card p {
   font-size: 0.85rem;
-  color: var(--wa-muted);
-  line-height: 1.7;
+  color: var(--text-muted);
+  line-height: 1.75;
   font-weight: 400;
 }
 .service-price {
   display: inline-block;
-  background: var(--wa-bubble);
-  color: var(--wa-green-dark);
+  background: rgba(74,222,128,0.08);
+  color: var(--accent);
   font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.3rem 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
   border-radius: 100px;
-  margin-top: 1rem;
-  border: 1px solid rgba(0,168,132,0.2);
+  margin-top: 1.25rem;
+  border: 1px solid rgba(74,222,128,0.2);
+  letter-spacing: 0.02em;
 }

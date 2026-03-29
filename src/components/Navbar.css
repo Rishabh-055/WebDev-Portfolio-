@@ -1,13 +1,13 @@
-/* ── NAVBAR — WhatsApp Web style dark header ── */
+/* ── NAVBAR — Prasanna dark glass style ── */
 nav {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
-  background: #202c33;           /* WhatsApp sidebar dark */
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid #2a3942;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  background: rgba(10,10,10,0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 .nav-inner {
   max-width: 1100px;
@@ -20,12 +20,12 @@ nav {
 }
 .logo {
   font-family: 'Inter', sans-serif;
-  font-weight: 800;
-  font-size: 1.15rem;
-  letter-spacing: -0.03em;
-  color: #e9edef;               /* WhatsApp light text */
+  font-weight: 900;
+  font-size: 1.2rem;
+  letter-spacing: -0.04em;
+  color: #fff;
 }
-.logo span { color: var(--wa-green); }
+.logo span { color: var(--accent); }
 
 .nav-links {
   display: flex;
@@ -36,25 +36,27 @@ nav {
   font-family: 'Inter', sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
-  color: #aebac1;               /* WhatsApp muted icon color */
+  color: #666;
   text-decoration: none;
   transition: color 0.2s;
+  letter-spacing: 0.01em;
 }
-.nav-links a:hover { color: #e9edef; }
+.nav-links a:hover { color: #fff; }
 
 .nav-cta {
-  background: var(--wa-green) !important;
-  color: white !important;
-  padding: 0.45rem 1.2rem;
-  border-radius: 100px;
-  font-weight: 600 !important;
+  background: var(--accent) !important;
+  color: #000 !important;
+  padding: 0.45rem 1.3rem !important;
+  border-radius: 100px !important;
+  font-weight: 700 !important;
   font-size: 0.82rem !important;
-  letter-spacing: 0.01em;
-  transition: background 0.2s !important;
+  letter-spacing: 0.01em !important;
+  transition: background 0.2s, transform 0.2s !important;
 }
 .nav-cta:hover {
-  background: var(--wa-green-dark) !important;
-  color: white !important;
+  background: #22c55e !important;
+  color: #000 !important;
+  transform: translateY(-1px) !important;
 }
 
 /* Hamburger */
@@ -71,13 +73,13 @@ nav {
   display: block;
   width: 24px;
   height: 2px;
-  background: #aebac1;
+  background: #666;
   border-radius: 2px;
   transition: all 0.3s;
 }
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: #fff; }
 .hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: #fff; }
 
 /* Mobile menu */
 .mobile-menu {
@@ -86,25 +88,28 @@ nav {
   top: 64px;
   left: 0;
   right: 0;
-  background: #202c33;
-  border-bottom: 1px solid #2a3942;
+  background: rgba(10,10,10,0.97);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   padding: 1.5rem;
   z-index: 99;
+  backdrop-filter: blur(20px);
 }
 .mobile-menu.open { display: block; }
 .mobile-menu ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 1.2rem;
 }
 .mobile-menu a {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 500;
-  color: #e9edef;
+  color: #ccc;
   text-decoration: none;
+  transition: color 0.2s;
 }
+.mobile-menu a:hover { color: var(--accent); }
 
 @media (max-width: 768px) {
   .nav-links { display: none; }

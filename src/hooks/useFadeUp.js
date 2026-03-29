@@ -10,7 +10,10 @@ export default function useFadeUp() {
           }
         });
       },
-      { threshold: 0.12 }
+      {
+        threshold: 0.08,
+        rootMargin: '0px 0px -60px 0px',
+      }
     );
 
     const elements = document.querySelectorAll('.fade-up');

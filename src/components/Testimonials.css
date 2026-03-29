@@ -1,11 +1,11 @@
-/* ── TESTIMONIALS — WhatsApp theme ── */
-#testimonials { background: var(--wa-bg); }
+/* ── TESTIMONIALS — Prasanna Dark ── */
+#testimonials { background: var(--pd-black); }
 #testimonials h2 {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--wa-ink);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #fff;
 }
 .testi-grid {
   display: grid;
@@ -14,51 +14,55 @@
   margin-top: 3rem;
 }
 .testi-card {
-  background: var(--wa-white);
-  border: 1px solid var(--wa-border);
-  border-radius: 18px;
-  padding: 1.75rem;
+  background: var(--pd-surface);
+  border: 1px solid var(--pd-border);
+  border-radius: 24px;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  transition: transform 0.3s, box-shadow 0.3s;
+  gap: 1.25rem;
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s, border-color 0.3s;
 }
 .testi-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(0,168,132,0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+  border-color: rgba(255,255,255,0.12);
 }
-.stars { color: #f59e0b; font-size: 0.9rem; letter-spacing: 2px; }
+.stars { color: var(--accent); font-size: 0.95rem; letter-spacing: 2px; }
 .testi-text {
   font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
-  color: var(--wa-ink);
+  font-size: 0.95rem;
+  color: var(--text-primary);
   line-height: 1.8;
   font-style: italic;
   font-weight: 400;
   flex: 1;
 }
-.testi-author { display: flex; align-items: center; gap: 0.75rem; }
+.testi-author { display: flex; align-items: center; gap: 1rem; }
 .testi-avatar {
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
+  background: rgba(74,222,128,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 0.9rem;
-  color: white;
+  font-size: 1rem;
+  color: var(--accent);
   flex-shrink: 0;
+  border: 1px solid rgba(74,222,128,0.2);
 }
 .testi-name {
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 0.85rem;
-  color: var(--wa-ink);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff;
+  letter-spacing: -0.01em;
 }
 .testi-role {
   font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
-  color: var(--wa-muted);
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }

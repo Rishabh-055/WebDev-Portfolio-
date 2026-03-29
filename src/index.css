@@ -1,29 +1,34 @@
 /* ==========================================
-   WHATSAPP THEME — GLOBAL DESIGN SYSTEM
+   PRASANNA DESIGN — DARK THEME SYSTEM
    ========================================== */
 :root {
-  /* WhatsApp Core Palette */
-  --wa-green:       #00a884;   /* primary action green */
-  --wa-green-dark:  #008069;   /* darker green for hovers */
-  --wa-green-light: #d9fdd3;   /* message bubble / light accent */
-  --wa-teal:        #00796b;   /* section headings accent */
-  --wa-bg:          #efeae2;   /* WhatsApp web chat bg (warm grey) */
-  --wa-sidebar:     #f0f2f5;   /* sidebar / section alt bg */
-  --wa-white:       #ffffff;
-  --wa-ink:         #111b21;   /* primary text */
-  --wa-muted:       #54656f;   /* secondary / muted text */
-  --wa-border:      #d1d7db;   /* divider / border */
-  --wa-bubble:      #d9fdd3;   /* sent message bubble */
-  --wa-shadow:      0 1px 3px rgba(11,20,26,.15);
+  /* Core Palette */
+  --pd-black:       #0A0A0A;   /* main bg */
+  --pd-surface:     #111111;   /* card / elevated surface */
+  --pd-surface2:    #161616;   /* alt section bg */
+  --pd-border:      rgba(255,255,255,0.07);  /* subtle card borders */
+  --pd-border-md:   rgba(255,255,255,0.12);
 
-  /* Semantic aliases (kept for legacy class compatibility) */
-  --ink:    var(--wa-ink);
-  --cream:  var(--wa-white);
-  --warm:   var(--wa-sidebar);
-  --accent: var(--wa-green);
-  --accent2: var(--wa-teal);
-  --muted:  var(--wa-muted);
-  --border: var(--wa-border);
+  /* Accent — Teal / Electric Green like Prasanna */
+  --accent:         #4ADE80;   /* primary highlight */
+  --accent-dim:     rgba(74,222,128,0.15);
+  --accent-glow:    0 0 24px rgba(74,222,128,0.25);
+
+  /* Text */
+  --text-primary:   #FFFFFF;
+  --text-secondary: #A3A3A3;
+  --text-muted:     #666666;
+
+  /* Legacy semantic aliases */
+  --wa-green:       var(--accent);
+  --wa-green-dark:  #22c55e;
+  --wa-ink:         var(--text-primary);
+  --wa-muted:       var(--text-secondary);
+  --wa-border:      var(--pd-border-md);
+  --ink:            var(--text-primary);
+  --accent2:        var(--accent);
+  --muted:          var(--text-secondary);
+  --border:         var(--pd-border);
 }
 
 /* ==========================================
@@ -31,111 +36,140 @@
    ========================================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: var(--wa-bg);
-  color: var(--wa-ink);
+  background: var(--pd-black);
+  color: var(--text-primary);
   overflow-x: hidden;
   font-size: 15px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  position: relative;
 }
+
+/* Dotted grid overlay — full-page background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Ensure all sections sit above the grid */
+body > #root { position: relative; z-index: 1; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  color: var(--wa-ink);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.12;
 }
 
 /* ==========================================
    LAYOUT
    ========================================== */
-section { padding: 5rem 1.5rem; }
+section { padding: 6rem 1.5rem; }
 .container { max-width: 1100px; margin: 0 auto; }
 
 .section-label {
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--wa-green);
-  margin-bottom: 0.5rem;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
 }
 .section-sub {
-  color: var(--wa-muted);
-  font-size: 1rem;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
   line-height: 1.75;
-  margin-top: 0.75rem;
-  max-width: 500px;
+  margin-top: 0.85rem;
+  max-width: 520px;
   font-weight: 400;
 }
 
+/* Caveat accent font utility */
+.font-accent {
+  font-family: 'Caveat', cursive;
+  color: var(--accent);
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
 /* ==========================================
-   BUTTONS — WhatsApp Style
+   BUTTONS — Prasanna Dark Style
    ========================================== */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--wa-green);
-  color: white;
+  background: var(--accent);
+  color: #000;
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.9rem;
-  padding: 0.8rem 1.7rem;
+  padding: 0.85rem 1.8rem;
   border-radius: 100px;
   text-decoration: none;
   transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
-  box-shadow: 0 4px 18px rgba(0,168,132,0.35);
+  box-shadow: 0 4px 20px rgba(74,222,128,0.3);
   letter-spacing: 0.01em;
 }
 .btn-primary:hover {
-  background: var(--wa-green-dark);
+  background: #22c55e;
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(0,168,132,0.45);
+  box-shadow: 0 8px 30px rgba(74,222,128,0.45);
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--wa-white);
-  color: var(--wa-ink);
+  background: transparent;
+  color: var(--text-primary);
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 0.9rem;
-  padding: 0.8rem 1.7rem;
+  padding: 0.85rem 1.8rem;
   border-radius: 100px;
   text-decoration: none;
-  border: 1.5px solid var(--wa-border);
-  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  transition: border-color 0.25s, background 0.25s, color 0.25s;
 }
 .btn-secondary:hover {
-  border-color: var(--wa-green);
-  background: var(--wa-sidebar);
-  box-shadow: 0 2px 12px rgba(0,168,132,0.12);
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--accent);
 }
 
 /* ==========================================
-   SCROLL ANIMATIONS — Slowed Down
+   SCROLL ANIMATIONS — Prasanna Style
    ========================================== */
 .fade-up {
   opacity: 0;
-  transform: translateY(36px);
-  transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(40px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Staggered delays for children */
+/* Staggered delays */
+.fade-up:nth-child(1) { transition-delay: 0s; }
 .fade-up:nth-child(2) { transition-delay: 0.1s; }
-.fade-up:nth-child(3) { transition-delay: 0.2s; }
-.fade-up:nth-child(4) { transition-delay: 0.3s; }
+.fade-up:nth-child(3) { transition-delay: 0.18s; }
+.fade-up:nth-child(4) { transition-delay: 0.26s; }
+.fade-up:nth-child(5) { transition-delay: 0.34s; }
+.fade-up:nth-child(6) { transition-delay: 0.42s; }
 
 /* ==========================================
    KEYFRAMES
@@ -153,11 +187,15 @@ section { padding: 5rem 1.5rem; }
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-8px); }
 }
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
 
 /* ==========================================
    RESPONSIVE
    ========================================== */
 @media (max-width: 768px) {
-  section { padding: 3.5rem 1.25rem; }
+  section { padding: 4rem 1.25rem; }
   body { font-size: 14px; }
 }

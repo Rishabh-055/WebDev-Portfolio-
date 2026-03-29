@@ -1,9 +1,9 @@
-/* ── TRUST BAR — WhatsApp theme ── */
+/* ── TRUST BAR — Prasanna Dark ── */
 #trust {
   padding: 2rem 1.5rem;
-  border-top: 1px solid var(--wa-border);
-  border-bottom: 1px solid var(--wa-border);
-  background: var(--wa-sidebar);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: var(--pd-surface);
 }
 .trust-inner {
   max-width: 1100px;
@@ -16,10 +16,10 @@
 }
 .trust-label {
   font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--wa-muted);
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -34,8 +34,10 @@
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--wa-muted);
+  color: #555;
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  transition: color 0.2s;
 }
+.trust-item:hover { color: var(--text-secondary); }
