@@ -1,201 +1,210 @@
-/* ==========================================
-   PRASANNA DESIGN — DARK THEME SYSTEM
-   ========================================== */
+/* ═══════════════════════════════════════════════════
+   1. Google Fonts (must be first @import)
+═══════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ═══════════════════════════════════════════════════
+   2. Tailwind Base
+═══════════════════════════════════════════════════ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════
+   3. CSS Custom Properties
+═══════════════════════════════════════════════════ */
 :root {
-  /* Core Palette */
-  --pd-black:       #0A0A0A;   /* main bg */
-  --pd-surface:     #111111;   /* card / elevated surface */
-  --pd-surface2:    #161616;   /* alt section bg */
-  --pd-border:      rgba(255,255,255,0.07);  /* subtle card borders */
-  --pd-border-md:   rgba(255,255,255,0.12);
-
-  /* Accent — Teal / Electric Green like Prasanna */
-  --accent:         #4ADE80;   /* primary highlight */
-  --accent-dim:     rgba(74,222,128,0.15);
-  --accent-glow:    0 0 24px rgba(74,222,128,0.25);
-
-  /* Text */
-  --text-primary:   #FFFFFF;
-  --text-secondary: #A3A3A3;
-  --text-muted:     #666666;
-
-  /* Legacy semantic aliases */
-  --wa-green:       var(--accent);
-  --wa-green-dark:  #22c55e;
-  --wa-ink:         var(--text-primary);
-  --wa-muted:       var(--text-secondary);
-  --wa-border:      var(--pd-border-md);
-  --ink:            var(--text-primary);
-  --accent2:        var(--accent);
-  --muted:          var(--text-secondary);
-  --border:         var(--pd-border);
+  --bg-dark: #050508;
+  --bg-card: #0d0d14;
+  --neon-cyan: #00f5d4;
+  --neon-purple: #b17bff;
+  --neon-pink: #ff4ecd;
+  --text-primary: #f0f0ff;
+  --text-muted: #7070a0;
 }
 
-/* ==========================================
-   RESET & BASE
-   ========================================== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* ═══════════════════════════════════════════════════
+   4. Global Reset & Base
+═══════════════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: var(--pd-black);
+  background-color: var(--bg-dark);
   color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-  font-size: 15px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  position: relative;
+  /* Hide default cursor only on desktop */
+  cursor: none;
 }
 
-/* Dotted grid overlay — full-page background */
-body::before {
-  content: '';
+/* Restore cursor on touch devices */
+@media (hover: none) {
+  body {
+    cursor: auto;
+  }
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(0, 245, 212, 0.2);
+  color: #fff;
+}
+
+/* ═══════════════════════════════════════════════════
+   5. Custom Scrollbar
+═══════════════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 245, 212, 0.3);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 245, 212, 0.6);
+}
+
+/* ═══════════════════════════════════════════════════
+   6. Custom Cursor
+═══════════════════════════════════════════════════ */
+.custom-cursor-outer {
   position: fixed;
-  inset: 0;
-  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 245, 212, 0.5);
   pointer-events: none;
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px);
-  background-size: 28px 28px;
+  z-index: 9999;
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  mix-blend-mode: difference;
 }
 
-/* Ensure all sections sit above the grid */
-body > #root { position: relative; z-index: 1; }
+.custom-cursor-outer.cursor-hover {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(0, 245, 212, 0.8);
+  background: rgba(0, 245, 212, 0.08);
+}
 
-h1, h2, h3, h4, h5, h6 {
+.custom-cursor-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neon-cyan);
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 10px rgba(0, 245, 212, 0.8);
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) {
+  .custom-cursor-outer,
+  .custom-cursor-inner {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   7. Lenis Smooth Scroll
+═══════════════════════════════════════════════════ */
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════
+   8. Dot Grid Background Helper
+═══════════════════════════════════════════════════ */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ═══════════════════════════════════════════════════
+   9. Glow Utilities
+═══════════════════════════════════════════════════ */
+.glow-cyan {
+  box-shadow: 0 0 30px rgba(0, 245, 212, 0.3);
+}
+.glow-purple {
+  box-shadow: 0 0 30px rgba(177, 123, 255, 0.3);
+}
+.text-glow-cyan {
+  text-shadow: 0 0 30px rgba(0, 245, 212, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════
+   10. Canvas full cover
+═══════════════════════════════════════════════════ */
+canvas {
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════════
+   11. Font overrides
+═══════════════════════════════════════════════════ */
+.font-space-grotesk {
+  font-family: 'Space Grotesk', sans-serif;
+}
+.font-inter {
   font-family: 'Inter', sans-serif;
-  font-weight: 800;
-  color: var(--text-primary);
-  letter-spacing: -0.03em;
-  line-height: 1.12;
 }
 
-/* ==========================================
-   LAYOUT
-   ========================================== */
-section { padding: 6rem 1.5rem; }
-.container { max-width: 1100px; margin: 0 auto; }
-
-.section-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.6rem;
-}
-.section-sub {
-  color: var(--text-secondary);
-  font-size: 1.05rem;
-  line-height: 1.75;
-  margin-top: 0.85rem;
-  max-width: 520px;
-  font-weight: 400;
+/* ═══════════════════════════════════════════════════
+   12. Gradient text utility
+═══════════════════════════════════════════════════ */
+.gradient-text {
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Caveat accent font utility */
-.font-accent {
-  font-family: 'Caveat', cursive;
-  color: var(--accent);
-  font-size: 1.3em;
-  font-weight: 600;
+/* ═══════════════════════════════════════════════════
+   13. Glass card utility
+═══════════════════════════════════════════════════ */
+.glass-card {
+  background: rgba(13, 13, 20, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* ==========================================
-   BUTTONS — Prasanna Dark Style
-   ========================================== */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--accent);
-  color: #000;
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 0.9rem;
-  padding: 0.85rem 1.8rem;
-  border-radius: 100px;
-  text-decoration: none;
-  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
-  box-shadow: 0 4px 20px rgba(74,222,128,0.3);
-  letter-spacing: 0.01em;
-}
-.btn-primary:hover {
-  background: #22c55e;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(74,222,128,0.45);
-}
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  color: var(--text-primary);
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 0.9rem;
-  padding: 0.85rem 1.8rem;
-  border-radius: 100px;
-  text-decoration: none;
-  border: 1.5px solid rgba(255,255,255,0.2);
-  transition: border-color 0.25s, background 0.25s, color 0.25s;
-}
-.btn-secondary:hover {
-  border-color: var(--accent);
-  background: var(--accent-dim);
-  color: var(--accent);
-}
-
-/* ==========================================
-   SCROLL ANIMATIONS — Prasanna Style
-   ========================================== */
-.fade-up {
-  opacity: 0;
-  transform: translateY(40px);
-  transition:
-    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Staggered delays */
-.fade-up:nth-child(1) { transition-delay: 0s; }
-.fade-up:nth-child(2) { transition-delay: 0.1s; }
-.fade-up:nth-child(3) { transition-delay: 0.18s; }
-.fade-up:nth-child(4) { transition-delay: 0.26s; }
-.fade-up:nth-child(5) { transition-delay: 0.34s; }
-.fade-up:nth-child(6) { transition-delay: 0.42s; }
-
-/* ==========================================
-   KEYFRAMES
-   ========================================== */
-@keyframes pulse {
-  0%,100% { opacity:1; transform:scale(1); }
-  50%      { opacity:0.5; transform:scale(1.3); }
-}
-@keyframes bounceIn {
-  0%   { transform:scale(0); opacity:0; }
-  60%  { transform:scale(1.1); }
-  100% { transform:scale(1); opacity:1; }
-}
-@keyframes floatY {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-8px); }
-}
-@keyframes shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position:  200% center; }
-}
-
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
-@media (max-width: 768px) {
-  section { padding: 4rem 1.25rem; }
-  body { font-size: 14px; }
+/* ═══════════════════════════════════════════════════
+   14. Remove old App.css styles collision
+═══════════════════════════════════════════════════ */
+#root {
+  width: 100%;
+  min-height: 100vh;
 }

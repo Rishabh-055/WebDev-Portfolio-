@@ -1,42 +1,56 @@
-import './index.css';
-import useFadeUp from './hooks/useFadeUp';
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import TrustBar from './components/TrustBar';
-import Problem from './components/Problem';
-import Services from './components/Services';
-import Portfolio from './components/Portfolio';
-import Transformation from './components/Transformation';
-import Testimonials from './components/Testimonials';
-import Pricing from './components/Pricing';
-import FAQ from './components/FAQ';
-import About from './components/About';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import WhatsAppFloat from './components/WhatsAppFloat';
+import { useLenis } from "./hooks/useLenis";
+
+import LoadingScreen from "./components/ui/LoadingScreen";
+import CustomCursor from "./components/layout/CustomCursor";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+
+import Hero from "./sections/Hero";
+import About from "./sections/About";
+import Projects from "./sections/Projects";
+import Skills from "./sections/Skills";
+import Contact from "./sections/Contact";
 
 export default function App() {
-  useFadeUp();
+  const [loading, setLoading] = useState(true);
+
+  // Initialize Lenis smooth scroll (synced with GSAP ScrollTrigger)
+  useLenis();
 
   return (
     <>
-      <Navbar />
-      <main>
-        <Hero />
-        <TrustBar />
-        <Problem />
-        <Services />
-        <Portfolio />
-        <Transformation />
-        <Testimonials />
-        <Pricing />
-        <FAQ />
-        <About />
-        <Contact />
-      </main>
-      <Footer />
-      <WhatsAppFloat />
+      {/* Loading screen */}
+      <AnimatePresence>
+        {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+      </AnimatePresence>
+
+      {/* Custom cursor — hidden on touch devices via CSS */}
+      <CustomCursor />
+
+      {/* Main content fades in after loading */}
+      <div
+        className="bg-[#050508] min-h-screen"
+        style={{
+          opacity: loading ? 0 : 1,
+          transition: "opacity 0.6s ease",
+          pointerEvents: loading ? "none" : "auto",
+        }}
+      >
+        <Navbar />
+
+        <main>
+          <Hero />
+          <About />
+          <Projects />
+          <Skills />
+          <Contact />
+        </main>
+
+        <Footer />
+      </div>
     </>
   );
 }

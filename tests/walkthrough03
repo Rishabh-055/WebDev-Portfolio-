@@ -1,0 +1,130 @@
+# 🚀 Awwwards-Level 3D Portfolio — Walkthrough
+
+## What Was Built
+
+A complete architectural rebuild of the existing React/Vite portfolio into a premium, immersive, interactive portfolio with Three.js 3D scenes, Framer Motion animations, Lenis smooth scroll, and a custom cursor.
+
+---
+
+## Packages Installed
+
+```bash
+@react-three/fiber @react-three/drei three
+framer-motion
+gsap @gsap/react
+lenis
+tailwindcss@3 postcss autoprefixer
+```
+
+---
+
+## New File Structure
+
+```
+src/
+├── components/
+│   ├── three/
+│   │   ├── HeroScene.jsx      ← Particle galaxy + torus knot + mouse camera
+│   │   ├── AboutBlob.jsx      ← Morphing icosahedron  
+│   │   ├── SkillsOrbit.jsx    ← Orbiting skill spheres with labels
+│   │   └── ParticleField.jsx  ← Contact section background
+│   ├── layout/
+│   │   ├── Navbar.jsx         ← Glassmorphism + mobile drawer
+│   │   ├── Footer.jsx         ← Minimal dark footer
+│   │   └── CustomCursor.jsx   ← Spring-animated split cursor
+│   └── ui/
+│       └── LoadingScreen.jsx  ← Animated progress bar loading screen
+├── sections/
+│   ├── Hero.jsx              ← Fullscreen 3D canvas + character animation
+│   ├── About.jsx             ← Bio + stats + blob 3D canvas
+│   ├── Projects.jsx          ← 3D tilt cards + category filter
+│   ├── Skills.jsx            ← Grid/3D orbit toggle
+│   └── Contact.jsx           ← Floating-label form + particle bg
+├── hooks/
+│   ├── useLenis.js            ← Lenis + GSAP ScrollTrigger sync
+│   └── useMouseParallax.js    ← Normalised mouse position hook
+├── utils/
+│   ├── projectData.js         ← 6 projects with gradients + metadata
+│   └── skillsData.js          ← 12 skills with colors + levels
+├── index.css                  ← Tailwind + CSS vars + cursor + scrollbar
+└── App.jsx                    ← Root with loading gate + Lenis init
+```
+
+---
+
+## Sections
+
+### 🌌 Hero
+![Hero Section](file:///C:/Users/ASUS/.gemini/antigravity/brain/2fe09395-10d5-4f72-bb7d-7b3996347a7b/hero_section_v3_initial_loading_complete_1774786294349.png)
+
+- 8,000-point particle galaxy with neon-cyan/purple/pink vertex colors
+- Floating torus knot with distort material + emissive glow
+- Mouse-reactive camera rig
+- `Stars` background from drei
+- Character-by-character name stagger animation
+- "View Work" gradient CTA + "Let's Talk" ghost button
+
+### 🧑 About
+![About Section](file:///C:/Users/ASUS/.gemini/antigravity/brain/2fe09395-10d5-4f72-bb7d-7b3996347a7b/about_section_1774786116684.png)
+
+- Two-column: bio text + 3D morphing icosahedron blob
+- 3 stats (years, projects, satisfaction)
+- Animated skill pill badges
+
+### 📦 Projects
+![Projects Section](file:///C:/Users/ASUS/.gemini/antigravity/brain/2fe09395-10d5-4f72-bb7d-7b3996347a7b/portfolio_scroll_2200px_projects_1774786311855.png)
+
+- 3D tilt cards on mouse hover (CSS perspective transform)
+- Vibrant gradient previews with dot-grid overlay
+- Category filter (all / fullstack / frontend / 3d)
+- Animated entrance with stagger
+
+### ⚡ Skills
+![Skills Section](file:///C:/Users/ASUS/.gemini/antigravity/brain/2fe09395-10d5-4f72-bb7d-7b3996347a7b/portfolio_scroll_3400px_skills_1774786318350.png)
+
+- Grid view: 12 skill cards with color dots + animated progress bars
+- 3D Orbit view: spheres orbiting a glowing center with OrbitControls (drag/zoom)
+
+### 📬 Contact
+![Contact Section](file:///C:/Users/ASUS/.gemini/antigravity/brain/2fe09395-10d5-4f72-bb7d-7b3996347a7b/portfolio_scroll_4600px_contact_1774786325122.png)
+
+- Floating-label form inputs
+- Three.js particle field background canvas
+- Social links + "Available for Work" pulse badge
+- Cyan-to-purple gradient submit button
+
+---
+
+## Design System
+
+| Token | Value |
+|---|---|
+| Background | `#050508` |
+| Card | `#0d0d14` |
+| Neon Cyan | `#00f5d4` |
+| Neon Purple | `#b17bff` |
+| Neon Pink | `#ff4ecd` |
+| Font Heading | Space Grotesk 700 |
+| Font Body | Inter 400/500 |
+
+---
+
+## Running Locally
+
+```bash
+npm run dev      # http://localhost:5173
+npm run build    # Production bundle
+```
+
+## Deploy to Vercel
+
+1. Push to GitHub
+2. Go to [vercel.com](https://vercel.com) → Import project
+3. Select the repo → Framework: **Vite** → Deploy ✓
+
+## Deploy to Netlify
+
+```bash
+npm run build
+# Upload the dist/ folder at app.netlify.com/drop
+```
