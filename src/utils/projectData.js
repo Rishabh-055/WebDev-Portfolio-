@@ -1,3 +1,9 @@
+import agencyImg from "../assets/Digital agency platform.webp";
+import ecommerceImg from "../assets/E-commerce admin dashboard.png";
+import aiContentImg from "../assets/ai content generator.jpg";
+import product3dImg from "../assets/3d product showcase.jpg";
+import portfolioSaasImg from "../assets/ai portfolio builder saas.png";
+
 export const projects = [
   {
     id: 1,
@@ -10,6 +16,7 @@ export const projects = [
     accent: "#00f5d4",
     liveUrl: "#",
     githubUrl: "#",
+    image: agencyImg,
   },
   {
     id: 2,
@@ -22,6 +29,7 @@ export const projects = [
     accent: "#b17bff",
     liveUrl: "#",
     githubUrl: "#",
+    image: ecommerceImg,
   },
   {
     id: 3,
@@ -34,6 +42,7 @@ export const projects = [
     accent: "#ff4ecd",
     liveUrl: "#",
     githubUrl: "#",
+    image: aiContentImg,
   },
   {
     id: 4,
@@ -46,19 +55,20 @@ export const projects = [
     accent: "#ff9500",
     liveUrl: "#",
     githubUrl: "#",
+    image: product3dImg,
   },
-  {
-    id: 5,
-    title: "Real Estate App",
-    description:
-      "Property listing platform with map integration, virtual tours, and AI-powered price estimation.",
-    tags: ["React", "Google Maps", "Firebase", "Tailwind"],
-    category: "frontend",
-    gradient: "from-emerald-500/40 via-teal-400/20 to-cyan-600/40",
-    accent: "#00c896",
-    liveUrl: "#",
-    githubUrl: "#",
-  },
+  // {
+  //   id: 5,
+  //   title: "Real Estate App",
+  //   description:
+  //     "Property listing platform with map integration, virtual tours, and AI-powered price estimation.",
+  //   tags: ["React", "Google Maps", "Firebase", "Tailwind"],
+  //   category: "frontend",
+  //   gradient: "from-emerald-500/40 via-teal-400/20 to-cyan-600/40",
+  //   accent: "#00c896",
+  //   liveUrl: "#",
+  //   githubUrl: "#",
+  // },
   {
     id: 6,
     title: "Portfolio Builder SaaS",
@@ -70,6 +80,7 @@ export const projects = [
     accent: "#4e8fff",
     liveUrl: "#",
     githubUrl: "#",
+    image: portfolioSaasImg,
   },
 ];
 

@@ -52,43 +52,57 @@ function ProjectCard({ project, index }) {
                    hover:border-cyan-400/30 hover:shadow-[0_0_40px_rgba(0,245,212,0.08)]"
         style={{ transition: "transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.3s ease" }}
       >
-        {/* Gradient preview area */}
+        {/* Preview area */}
         <div
-          className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}
+          className="h-48 relative overflow-hidden bg-[#0a0a0f]"
         >
+          {project.image ? (
+            <img
+              src={project.image}
+              alt={project.title}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          ) : (
+            <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient}`} />
+          )}
+
+          {/* Dark overlay for contrast */}
+          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
+
           {/* Animated grid overlay */}
           <div
-            className="absolute inset-0 opacity-20"
+            className="absolute inset-0 opacity-30 mix-blend-overlay"
             style={{
               backgroundImage: `linear-gradient(${project.accent}20 1px, transparent 1px), linear-gradient(90deg, ${project.accent}20 1px, transparent 1px)`,
               backgroundSize: "30px 30px",
             }}
           />
+
           {/* Project number */}
           <span
-            className="absolute top-4 right-4 text-5xl font-black font-space-grotesk opacity-10"
-            style={{ color: project.accent }}
+            className="absolute top-4 right-4 text-5xl font-black font-space-grotesk opacity-30"
+            style={{ color: "#ffffff" }}
           >
             {String(project.id).padStart(2, "0")}
           </span>
 
           {/* Glow circle */}
           <div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none mix-blend-screen"
           >
             <div
-              className="w-32 h-32 rounded-full blur-2xl"
-              style={{ backgroundColor: `${project.accent}30` }}
+              className="w-32 h-32 rounded-full blur-[40px]"
+              style={{ backgroundColor: `${project.accent}60` }}
             />
           </div>
 
           {/* Top badge */}
           <span
-            className="absolute top-4 left-4 px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest"
+            className="absolute top-4 left-4 px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest backdrop-blur-md"
             style={{
-              backgroundColor: `${project.accent}20`,
-              color: project.accent,
-              border: `1px solid ${project.accent}40`,
+              backgroundColor: `${project.accent}30`,
+              color: "#ffffff",
+              border: `1px solid ${project.accent}50`,
             }}
           >
             {project.category}
@@ -201,11 +215,10 @@ export default function Projects() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`relative px-4 py-2 rounded-full text-xs font-medium font-inter capitalize transition-all duration-300 ${
-                  activeCategory === cat
+                className={`relative px-4 py-2 rounded-full text-xs font-medium font-inter capitalize transition-all duration-300 ${activeCategory === cat
                     ? "text-black bg-gradient-to-r from-cyan-400 to-purple-500"
                     : "text-white/40 border border-white/10 hover:border-white/30 hover:text-white/70"
-                }`}
+                  }`}
               >
                 {cat}
               </button>
