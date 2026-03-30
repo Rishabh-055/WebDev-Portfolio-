@@ -16,8 +16,8 @@ const fadeUp = (delay = 0) => ({
 const socialLinks = [
   { label: "GitHub", href: "https://github.com/Rishabh-055", color: "#ffffff" },
   { label: "LinkedIn", href: "#", color: "#0A66C2" },
-  { label: "Twitter / X", href: "#", color: "#1DA1F2" },
-  { label: "Email", href: "mailto:rishabh@example.com", color: "#00f5d4" },
+  // { label: "Twitter / X", href: "#", color: "#1DA1F2" },
+  { label: "Email", href: "mailto:malviyarishabh494@gmail.com", color: "#00f5d4" },
 ];
 
 function FloatingLabel({ children, label, ...props }) {

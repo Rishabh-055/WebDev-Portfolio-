@@ -46,7 +46,6 @@ function SkillSphere({ name, color, radius, speed, y = 0, offset = 0 }) {
           color={color}
           anchorX="center"
           anchorY="middle"
-          font="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2"
         >
           {name}
         </Text>
@@ -70,8 +69,8 @@ function CoreSphere() {
       <meshStandardMaterial
         color="#00f5d4"
         emissive="#00f5d4"
-        emissiveIntensity={1.2}
-        metalness={1}
+        emissiveIntensity={1.8}
+        metalness={1.5}
         roughness={0}
       />
     </mesh>

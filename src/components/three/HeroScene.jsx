@@ -152,7 +152,7 @@ export default function HeroScene({ mouse = { x: 0, y: 0 } }) {
 
       {/* Main elements */}
       <ParticleGalaxy />
-      <FloatingTorusKnot />
+      {/* <FloatingTorusKnot /> */}
 
       {/* Camera mouse parallax */}
       <CameraRig mouse={mouse} />

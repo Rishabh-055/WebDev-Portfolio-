@@ -2,7 +2,7 @@ import { Suspense, lazy } from "react";
 import { Canvas } from "@react-three/fiber";
 import { motion } from "framer-motion";
 
-const AboutBlob = lazy(() => import("../components/three/AboutBlob"));
+const ProfileImage3D = lazy(() => import("../components/three/ProfileImage3D"));
 
 const skills = [
   "React", "Next.js", "Three.js", "TypeScript",
@@ -143,7 +143,7 @@ export default function About() {
               dpr={[1, 1.5]}
             >
               <Suspense fallback={null}>
-                <AboutBlob />
+                <ProfileImage3D />
               </Suspense>
             </Canvas>
           </motion.div>

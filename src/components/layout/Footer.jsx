@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const socialLinks = [
   { label: "GitHub", href: "https://github.com/Rishabh-055", icon: "GH" },
   { label: "LinkedIn", href: "#", icon: "LI" },
-  { label: "Twitter", href: "#", icon: "TW" },
+  // { label: "Twitter", href: "#", icon: "TW" },
 ];
 
 export default function Footer() {
